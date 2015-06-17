@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.gr1tahsilatuyg.ptt.gov.tr/" xmlns:ns1="http://jaxb.dev.java.net/array" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.gr1tahsilatuyg.ptt.gov.tr/">
+
+<xs:import namespace="http://jaxb.dev.java.net/array" schemaLocation="http://localhost:8080/GR1TahsilatUyg/TahsilatBorcWs?xsd=2"/>
+
+<xs:element name="chartVerisiGetir" type="tns:chartVerisiGetir"/>
+
+<xs:element name="chartVerisiGetirResponse" type="tns:chartVerisiGetirResponse"/>
+
+<xs:element name="findAllBorcViaKurumIdAndAboneNo" type="tns:findAllBorcViaKurumIdAndAboneNo"/>
+
+<xs:element name="findAllBorcViaKurumIdAndAboneNoResponse" type="tns:findAllBorcViaKurumIdAndAboneNoResponse"/>
+
+<xs:element name="kurumAdlariGetir" type="tns:kurumAdlariGetir"/>
+
+<xs:element name="kurumAdlariGetirResponse" type="tns:kurumAdlariGetirResponse"/>
+
+<xs:element name="seciliFaturalariOde" type="tns:seciliFaturalariOde"/>
+
+<xs:element name="seciliFaturalariOdeResponse" type="tns:seciliFaturalariOdeResponse"/>
+
+<xs:complexType name="chartVerisiGetir">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="chartVerisiGetirResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:anyTypeArray" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="kurumAdlariGetir">
+<xs:sequence>
+<xs:element name="query" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="kurumAdlariGetirResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAllBorcViaKurumIdAndAboneNo">
+<xs:sequence>
+<xs:element name="p_kurumad" type="xs:string" minOccurs="0"/>
+<xs:element name="p_aboneNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAllBorcViaKurumIdAndAboneNoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tahsilatBorc" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tahsilatBorc">
+<xs:sequence>
+<xs:element name="aboneAd" type="xs:string" minOccurs="0"/>
+<xs:element name="aboneNo" type="xs:string" minOccurs="0"/>
+<xs:element name="aboneSoyad" type="xs:string" minOccurs="0"/>
+<xs:element name="faturaDurum" type="xs:int" minOccurs="0"/>
+<xs:element name="faturaNo" type="xs:string" minOccurs="0"/>
+<xs:element name="faturaSonOdemeTrh" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="faturaTutar" type="xs:decimal" minOccurs="0"/>
+<xs:element name="id" type="xs:decimal" minOccurs="0"/>
+<xs:element name="kurum" type="tns:tahsilatKurum" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tahsilatKurum">
+<xs:sequence>
+<xs:element name="ad" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:decimal" minOccurs="0"/>
+<xs:element name="tahsilatBorcList" type="tns:tahsilatBorc" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="tahsilatList" type="tns:tahsilat" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tahsilat">
+<xs:sequence>
+<xs:element name="id" type="xs:decimal" minOccurs="0"/>
+<xs:element name="islemTrh" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="kisi" type="tns:tahsilatKisi" minOccurs="0"/>
+<xs:element name="kisiSiraNo" type="xs:int" minOccurs="0"/>
+<xs:element name="kurum" type="tns:tahsilatKurum" minOccurs="0"/>
+<xs:element name="tahsilatDetayList" type="tns:tahsilatDetay" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="tahsilatMuhasebeList" type="tns:tahsilatMuhasebe" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="tutar" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tahsilatKisi">
+<xs:sequence>
+<xs:element name="ad" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:decimal" minOccurs="0"/>
+<xs:element name="kullaniciAd" type="xs:string" minOccurs="0"/>
+<xs:element name="rol" type="xs:string" minOccurs="0"/>
+<xs:element name="sifre" type="xs:string" minOccurs="0"/>
+<xs:element name="sirano" type="xs:int" minOccurs="0"/>
+<xs:element name="soyad" type="xs:string" minOccurs="0"/>
+<xs:element name="tahsilatList" type="tns:tahsilat" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="tahsilatMenuList" type="tns:tahsilatMenu" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="tema" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tahsilatMenu">
+<xs:sequence>
+<xs:element name="baslik" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:decimal" minOccurs="0"/>
+<xs:element name="link" type="xs:string" minOccurs="0"/>
+<xs:element name="tahsilatKisiList" type="tns:tahsilatKisi" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tahsilatDetay">
+<xs:sequence>
+<xs:element name="aboneNo" type="xs:string" minOccurs="0"/>
+<xs:element name="faturaNo" type="xs:string" minOccurs="0"/>
+<xs:element name="faturaSonOdemeTrh" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="id" type="xs:decimal" minOccurs="0"/>
+<xs:element name="tahsilat" type="tns:tahsilat" minOccurs="0"/>
+<xs:element name="tutar" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tahsilatMuhasebe">
+<xs:sequence>
+<xs:element name="hesapNo" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:decimal" minOccurs="0"/>
+<xs:element name="tahsilat" type="tns:tahsilat" minOccurs="0"/>
+<xs:element name="tutar" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="seciliFaturalariOde">
+<xs:sequence>
+<xs:element name="p_seciliBorclar" type="tns:tahsilatBorc" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="p_kisi" type="tns:tahsilatKisi" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="seciliFaturalariOdeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
